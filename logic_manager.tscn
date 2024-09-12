@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cubt07kdjdte8"]
+
+[ext_resource type="PackedScene" uid="uid://cg2qpe4rl0m67" path="res://player.tscn" id="1_aodec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6oupg"]
+
+[node name="Logic Manager" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_aodec")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_6oupg")
