@@ -7,10 +7,16 @@
 [node name="Logic Manager" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(60, 215)
 
 [node name="Ground" type="StaticBody2D" parent="."]
+modulate = Color(0.27451, 0.117647, 0.27451, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 300)
+scale = Vector2(60, 3)
 shape = SubResource("RectangleShape2D_6oupg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(60, 215)
+scale = Vector2(7, 7)

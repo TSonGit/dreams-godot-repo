@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg2qpe4rl0m67"]
+[gd_scene load_steps=9 format=3 uid="uid://cg2qpe4rl0m67"]
 
+[ext_resource type="Script" path="res://spooky_runner_player.gd" id="1_17wut"]
 [ext_resource type="Texture2D" uid="uid://cx0mpygnxs5nm" path="res://assets/run.png" id="1_ha3ga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_veoip"]
@@ -42,11 +43,12 @@ animations = [{
 
 [node name="Player" type="Area2D"]
 scale = Vector2(7, 7)
+script = ExtResource("1_17wut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ptdic")
 animation = &"run"
-frame_progress = 0.421062
+frame_progress = 0.464917
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.8, 0.8)
