@@ -1,55 +1,57 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg2qpe4rl0m67"]
+[gd_scene load_steps=9 format=3 uid="uid://c5kk66jq5ukyo"]
 
 [ext_resource type="Script" path="res://spooky_runner_player.gd" id="1_17wut"]
 [ext_resource type="Texture2D" uid="uid://cx0mpygnxs5nm" path="res://assets/run.png" id="1_ha3ga"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_veoip"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dk5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa0ds"]
 atlas = ExtResource("1_ha3ga")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xthh3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_56m22"]
 atlas = ExtResource("1_ha3ga")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4i62"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsmqq"]
 atlas = ExtResource("1_ha3ga")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yd4uh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjy4e"]
 atlas = ExtResource("1_ha3ga")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ptdic"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7du56"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_veoip")
+"texture": SubResource("AtlasTexture_qa0ds")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xthh3")
+"texture": SubResource("AtlasTexture_56m22")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l4i62")
+"texture": SubResource("AtlasTexture_xsmqq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yd4uh")
+"texture": SubResource("AtlasTexture_xjy4e")
 }],
 "loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_20qbn"]
-
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 script = ExtResource("1_17wut")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ptdic")
-animation = &"run"
-frame_progress = 0.464917
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.8, 0.8)
-shape = SubResource("RectangleShape2D_20qbn")
+shape = SubResource("RectangleShape2D_8dk5k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_7du56")
+animation = &"run"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
