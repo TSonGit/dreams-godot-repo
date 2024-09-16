@@ -41,7 +41,7 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20qbn"]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(7, 7)
 script = ExtResource("1_17wut")
 

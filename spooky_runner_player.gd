@@ -1,18 +1,20 @@
-extends Area2D
+extends CharacterBody2D
 
-@export var FALL_SPEED = 100.0
-const FLOOR_POSITION = 215.0
-var falling = false
+@export var character_gravity = 15.0
+@export var jump_strength = -75.5
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = Vector2(60,215)
-
+	position = Vector2(70,30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if position.y < FLOOR_POSITION && falling == true:
-		position.y += FALL_SPEED
-	elif position.y > FLOOR_POSITION && falling == true:
-		position.y = FLOOR_POSITION
+#if is_on_floor():
+	if Input.is_action_just_pressed("Jump"):
+			velocity.y = jump_strength
+	if not is_on_floor():
+		if velocity.y <= 0.0:
+			velocity.y += gravity * delta
+	
