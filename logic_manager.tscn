@@ -1,21 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cubt07kdjdte8"]
+[gd_scene load_steps=5 format=3 uid="uid://cubt07kdjdte8"]
 
 [ext_resource type="PackedScene" uid="uid://c5kk66jq5ukyo" path="res://player.tscn" id="1_aodec"]
 [ext_resource type="Texture2D" uid="uid://g5tlo0puvwbp" path="res://icon.svg" id="2_4nvbp"]
+[ext_resource type="PackedScene" uid="uid://c4cbkersgommt" path="res://monster.tscn" id="3_b01r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8sbi"]
 
 [node name="Logic Manager" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
+position = Vector2(88, 153)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 250)
 scale = Vector2(60, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_p8sbi")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(0.156, 0.156)
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(0, 32.008)
+scale = Vector2(0.156, 0.656125)
 texture = ExtResource("2_4nvbp")
+
+[node name="monster" parent="." instance=ExtResource("3_b01r7")]
+position = Vector2(-427, 97)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
