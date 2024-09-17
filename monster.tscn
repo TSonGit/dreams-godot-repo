@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4cbkersgommt"]
+
+[ext_resource type="Script" path="res://monster.gd" id="1_kvvpu"]
+[ext_resource type="Texture2D" uid="uid://knd3fqcsht4w" path="res://assets/skyll-sprite.png" id="1_shxp0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqa6b"]
+atlas = ExtResource("1_shxp0")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg6i8"]
+atlas = ExtResource("1_shxp0")
+region = Rect2(64, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kytbu"]
+atlas = ExtResource("1_shxp0")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw11k"]
+atlas = ExtResource("1_shxp0")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0iapk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqa6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg6i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kytbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw11k")
+}],
+"loop": true,
+"name": &"worm",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bd4a"]
+size = Vector2(332, 154)
+
+[node name="monster" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_kvvpu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_0iapk")
+animation = &"worm"
+frame_progress = 0.621172
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_2bd4a")
