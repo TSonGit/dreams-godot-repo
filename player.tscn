@@ -52,6 +52,3 @@ shape = SubResource("RectangleShape2D_8dk5k")
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_7du56")
 animation = &"run"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
