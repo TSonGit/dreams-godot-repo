@@ -9,10 +9,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(60, 215)
-scale = Vector2(7, 7)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 250)
 scale = Vector2(60, 2)
