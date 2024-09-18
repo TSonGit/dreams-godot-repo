@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var jump_velocity = -300.0
 @export var max_character_gravity = 1550.0
 @export var character_gravity = 900.0
+@export var life = 3
 
 var current_character_gravity = 0.0
 

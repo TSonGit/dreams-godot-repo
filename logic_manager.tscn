@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cubt07kdjdte8"]
+[gd_scene load_steps=7 format=3 uid="uid://cubt07kdjdte8"]
 
 [ext_resource type="PackedScene" uid="uid://c5kk66jq5ukyo" path="res://player.tscn" id="1_aodec"]
+[ext_resource type="Script" path="res://spooky_runner_logic_manager.gd" id="1_hbocm"]
 [ext_resource type="Texture2D" uid="uid://g5tlo0puvwbp" path="res://icon.svg" id="2_4nvbp"]
+[ext_resource type="PackedScene" uid="uid://d4ltxn47mso5b" path="res://obstacle.tscn" id="2_ltnyj"]
 [ext_resource type="PackedScene" uid="uid://c4cbkersgommt" path="res://monster.tscn" id="3_b01r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8sbi"]
 
 [node name="Logic Manager" type="Node"]
+script = ExtResource("1_hbocm")
+minObstacleSpawnTime = 2.5
+maxObstacleSpawnTime = 7.5
+obstacle_scene = ExtResource("2_ltnyj")
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
-position = Vector2(88, 153)
+position = Vector2(90, 180)
+jump_velocity = -350.0
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 250)
