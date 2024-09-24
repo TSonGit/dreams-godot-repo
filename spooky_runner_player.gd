@@ -15,13 +15,30 @@ func _ready() -> void:
 
 func _physics_process(delta):
 		# Add the gravity.
-# If jump is just pressed: 
+	#jumpTimer += delta
+	#
+	#if (Input.is_action_just_pressed("Jump")):
+		#if is_on_floor():
+			#jump_velocity -= 600
+			#velocity.y = jump_velocity
+		##else:
+			##jumpTimer = 0.0
+	#else: if (Input.is_action_pressed("Jump")):
+		#if (!is_on_floor()):
+			#if jumpTimer < 0.25:
+				#jump_velocity -= 900
+				#velocity.y = jump_velocity
+				
+	
+ #If jump is just pressed: 
 	if (Input.is_action_just_pressed("Jump") && is_on_floor()):
 		jump_velocity -= 600
 		velocity.y = jump_velocity
 # If jump is pressed/held:
-	if (Input.is_action_pressed("Jump") && jumpTimer < 0.25):
-		
+	if (Input.is_action_pressed("Jump") && is_on_floor()):
+		if jumpTimer < 0.25:
+			jumpTimer += delta
+			velocity.y = jump_velocity
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
