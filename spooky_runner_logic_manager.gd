@@ -1,19 +1,14 @@
 extends Node
-@export var minObstacleSpawnTime = 0.25
-@export var maxObstacleSpawnTime = 1.0
-
 @export var obstacle_scene: PackedScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ObstacleTimer.start()
 
+func _on_obstacle_timer_timeout():
+	_create_obstacle()
+	$ObstacleTimer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	create_obstacle(randf_range(minObstacleSpawnTime,maxObstacleSpawnTime))
-	
-
-func create_obstacle(spawn_time):
-	print("Timer started.")
-	await get_tree().create_timer(spawn_time).timeout
-	print("Timer ended.")
+func _create_obstacle():
+	var obstacle = obstacle_scene.instantiate()
+	obstacle.position = Vector2(500,180)
+	add_child(obstacle)
