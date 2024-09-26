@@ -17,13 +17,12 @@ script = ExtResource("1_hbocm")
 obstacle_scene = ExtResource("2_ltnyj")
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
-position = Vector2(90, 180)
+position = Vector2(123, 177)
 jump_velocity = -350.0
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 250)
 scale = Vector2(60, 2)
-collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_p8sbi")
@@ -34,7 +33,7 @@ scale = Vector2(0.156, 0.656125)
 texture = ExtResource("2_4nvbp")
 
 [node name="monster" parent="." instance=ExtResource("3_b01r7")]
-position = Vector2(-490, 42)
+position = Vector2(-557, 42)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
