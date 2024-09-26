@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bd4a"]
-size = Vector2(332, 154)
+size = Vector2(302.25, 154)
 
 [node name="monster" type="Area2D"]
 scale = Vector2(4, 4)
@@ -53,6 +53,8 @@ animation = &"worm"
 frame_progress = 0.621172
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, 0)
+[node name="AreaCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.875, 0)
 shape = SubResource("RectangleShape2D_2bd4a")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
