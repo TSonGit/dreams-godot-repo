@@ -43,7 +43,7 @@ animations = [{
 size = Vector2(332, 154)
 
 [node name="monster" type="Area2D"]
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 script = ExtResource("1_kvvpu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

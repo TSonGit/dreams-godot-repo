@@ -1,3 +1,18 @@
 To Do List:
-(add stuff)
----------------
+-----------
+Priority Tasks:
+1. Object collision and removal
+2. Create a dive mechanic
+3. "Spawn Blocks" array for obstacle generation
+4. Add ceiling
+5. Game Timer (Counts down until you get caught)
+6. Hidden Life value for player (start with 3, each hit pushes player towards monster)
+7. Life Bar for monster (Think Souls Boss)
+8. Add TNT Item (Will be able to be grabbed/used by player, when thrown- will damage boss)
+9.
+-----------
+Side Tasks:
+1. Debug Jumping
+2. Monster animations
+3. Music/soundtrack
+4. 
