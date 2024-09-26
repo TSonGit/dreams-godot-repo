@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cubt07kdjdte8"]
+[gd_scene load_steps=9 format=3 uid="uid://cubt07kdjdte8"]
 
 [ext_resource type="PackedScene" uid="uid://c5kk66jq5ukyo" path="res://player.tscn" id="1_aodec"]
 [ext_resource type="Script" path="res://spooky_runner_logic_manager.gd" id="1_hbocm"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://obstacle_timer.gd" id="6_a584m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8sbi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_squck"]
+size = Vector2(1115, 245.5)
 
 [node name="Logic Manager" type="Node"]
 script = ExtResource("1_hbocm")
@@ -30,12 +33,27 @@ scale = Vector2(0.156, 0.656125)
 texture = ExtResource("2_4nvbp")
 
 [node name="monster" parent="." instance=ExtResource("3_b01r7")]
-position = Vector2(-427, 97)
-scale = Vector2(2, 2)
+position = Vector2(-490, 42)
+scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 script = ExtResource("6_a584m")
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(8, -50)
+collision_layer = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(5, -253.25)
+shape = SubResource("RectangleShape2D_squck")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Ceiling"]
+position = Vector2(0, -250)
+scale = Vector2(9, 2)
+texture = ExtResource("2_4nvbp")
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
