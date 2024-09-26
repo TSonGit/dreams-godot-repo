@@ -6,8 +6,12 @@ func _ready():
 	set_linear_velocity(Vector2(-500.0,0.0))
 	
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("Obstacle destroyed")
-	queue_free()
+	_destroy()
 	
-func _on_body_entered():
+func _on_body_entered(_body):
+	if _body.name == "Player":
+		_destroy()
+
+func _destroy():
+	print("Obstacle destroyed")
 	queue_free()
