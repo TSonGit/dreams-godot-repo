@@ -4,23 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://kgcub1dgsi13" path="res://assets/microgame/spike.png" id="2_4u6xy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsc8e"]
-size = Vector2(17.0909, 17.5)
+size = Vector2(21.0909, 14.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iu4p"]
-size = Vector2(59, 75)
+size = Vector2(85, 112)
 
 [node name="Obstacle" type="RigidBody2D"]
 physics_interpolation_mode = 2
 collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_dkjqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.20833, 2.91667)
+scale = Vector2(3.5, 4.622)
 texture = ExtResource("2_4u6xy")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.499998, 0)
+position = Vector2(-2, 16.5)
 scale = Vector2(2.75, 4)
 shape = SubResource("RectangleShape2D_hsc8e")
 
@@ -29,7 +30,7 @@ shape = SubResource("RectangleShape2D_hsc8e")
 [node name="ObstacleArea" type="Area2D" parent="."]
 
 [node name="AreaCollision" type="CollisionShape2D" parent="ObstacleArea"]
-position = Vector2(-0.5, -0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_6iu4p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

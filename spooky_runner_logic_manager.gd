@@ -10,5 +10,6 @@ func _on_obstacle_timer_timeout():
 
 func _create_obstacle():
 	var obstacle = obstacle_scene.instantiate()
-	obstacle.position = Vector2(500,180)
 	add_child(obstacle)
+	var obstacle_spawn_location = $ObjectSpawn.position
+	obstacle.position = obstacle_spawn_location
