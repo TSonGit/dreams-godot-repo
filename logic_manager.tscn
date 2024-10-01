@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cubt07kdjdte8"]
+[gd_scene load_steps=12 format=3 uid="uid://cubt07kdjdte8"]
 
 [ext_resource type="PackedScene" uid="uid://c5kk66jq5ukyo" path="res://player.tscn" id="1_aodec"]
 [ext_resource type="Script" path="res://spooky_runner_logic_manager.gd" id="1_hbocm"]
-[ext_resource type="Texture2D" uid="uid://g5tlo0puvwbp" path="res://icon.svg" id="2_4nvbp"]
 [ext_resource type="PackedScene" uid="uid://d4ltxn47mso5b" path="res://obstacle.tscn" id="2_ltnyj"]
 [ext_resource type="PackedScene" uid="uid://c4cbkersgommt" path="res://monster.tscn" id="3_b01r7"]
+[ext_resource type="Script" path="res://background.gd" id="3_ms45d"]
+[ext_resource type="Texture2D" uid="uid://c7m3tsl1olwk2" path="res://assets/dirt.png" id="4_kqxa1"]
+[ext_resource type="Texture2D" uid="uid://4ivtqld0tk1l" path="res://assets/bricks/brick_tile_1.png" id="4_wbl70"]
 [ext_resource type="Script" path="res://obstacle_timer.gd" id="6_a584m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q7w7"]
+size = Vector2(29, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8sbi"]
 
@@ -15,6 +20,20 @@ size = Vector2(1115, 245.5)
 [node name="Logic Manager" type="Node"]
 script = ExtResource("1_hbocm")
 obstacle_scene = ExtResource("2_ltnyj")
+
+[node name="Background" type="StaticBody2D" parent="."]
+script = ExtResource("3_ms45d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background"]
+position = Vector2(-40, 0)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_1q7w7")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(22, 10)
+scale = Vector2(52.8333, 21.3333)
+texture = ExtResource("4_wbl70")
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
 position = Vector2(123, 177)
@@ -28,12 +47,12 @@ scale = Vector2(60, 2)
 shape = SubResource("RectangleShape2D_p8sbi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(0, 32.008)
-scale = Vector2(0.156, 0.656125)
-texture = ExtResource("2_4nvbp")
+position = Vector2(0.108334, 33)
+scale = Vector2(0.080013, 0.339844)
+texture = ExtResource("4_kqxa1")
 
 [node name="monster" parent="." instance=ExtResource("3_b01r7")]
-position = Vector2(-557, 42)
+position = Vector2(-537, 40)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -42,18 +61,18 @@ scale = Vector2(3, 3)
 script = ExtResource("6_a584m")
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
-position = Vector2(8, -50)
+position = Vector2(0, -50)
 collision_layer = 0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(5, -253.25)
+position = Vector2(0, -253.25)
 shape = SubResource("RectangleShape2D_squck")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ceiling"]
-position = Vector2(0, -250)
-scale = Vector2(9, 2)
-texture = ExtResource("2_4nvbp")
+position = Vector2(0, -205.5)
+scale = Vector2(4.57422, 0.605469)
+texture = ExtResource("4_kqxa1")
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

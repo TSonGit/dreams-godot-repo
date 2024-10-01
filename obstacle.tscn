@@ -1,15 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4ltxn47mso5b"]
 
 [ext_resource type="Script" path="res://spooky_runner_obstacle.gd" id="1_dkjqv"]
-[ext_resource type="Texture2D" uid="uid://g5tlo0puvwbp" path="res://icon.svg" id="2_qy7dx"]
+[ext_resource type="Texture2D" uid="uid://kgcub1dgsi13" path="res://assets/microgame/spike.png" id="2_4u6xy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_la3qb"]
-radius = 13.0909
-height = 36.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsc8e"]
+size = Vector2(17.0909, 17.5)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vc4hy"]
-radius = 47.0
-height = 170.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iu4p"]
+size = Vector2(59, 75)
 
 [node name="Obstacle" type="RigidBody2D"]
 physics_interpolation_mode = 2
@@ -18,19 +16,21 @@ gravity_scale = 0.0
 script = ExtResource("1_dkjqv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 1.5)
-texture = ExtResource("2_qy7dx")
+scale = Vector2(2.20833, 2.91667)
+texture = ExtResource("2_4u6xy")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499998, 0)
 scale = Vector2(2.75, 4)
-shape = SubResource("CapsuleShape2D_la3qb")
+shape = SubResource("RectangleShape2D_hsc8e")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="ObstacleArea" type="Area2D" parent="."]
 
 [node name="AreaCollision" type="CollisionShape2D" parent="ObstacleArea"]
-shape = SubResource("CapsuleShape2D_vc4hy")
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_6iu4p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

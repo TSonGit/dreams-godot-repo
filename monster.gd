@@ -14,3 +14,4 @@ func _process(delta: float):
 func _on_area_entered(area):
 		if (area.name == "ObstacleArea"):
 			area.get_parent().queue_free()
+		print("Obstacle Destroyed by Worm")
