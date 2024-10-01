@@ -3,6 +3,10 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ObstacleTimer.start()
+	var player_spawn_location = $PlayerSpawn.position
+	var monster_spawn_location = $MonsterSpawn.position
+	$Player.position = player_spawn_location
+	$monster.position = monster_spawn_location
 
 func _on_obstacle_timer_timeout():
 	_create_obstacle()

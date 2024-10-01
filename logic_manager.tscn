@@ -76,6 +76,12 @@ scale = Vector2(4.57422, 0.605469)
 texture = ExtResource("4_kqxa1")
 
 [node name="ObjectSpawn" type="Marker2D" parent="."]
-position = Vector2(670, 197)
+position = Vector2(670, 175)
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(120, 170)
+
+[node name="MonsterSpawn" type="Marker2D" parent="."]
+position = Vector2(-535, 40)
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
