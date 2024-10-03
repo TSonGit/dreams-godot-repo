@@ -46,4 +46,7 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if (area.name == "ObstacleArea"):
 		area.get_parent().queue_free()
-	print("Obstacle Destroyed by Player")
+		print("Obstacle Destroyed by Player")
+	if (area.name == "DynamiteArea"):
+		area.get_parent().queue_free()
+		print("Player grabbed dynamite")

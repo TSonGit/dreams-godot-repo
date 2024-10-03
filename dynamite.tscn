@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxsbucrcr117t"]
+[gd_scene load_steps=5 format=3 uid="uid://cxsbucrcr117t"]
 
 [ext_resource type="Texture2D" uid="uid://drgnn1ilpp3mx" path="res://assets/explosive-ocal/32x32/dynamite_01.png" id="1_1gjae"]
 [ext_resource type="Script" path="res://dynamite.gd" id="1_tbgjd"]
@@ -6,14 +6,26 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uerhi"]
 size = Vector2(18, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qq4vi"]
+size = Vector2(70, 100)
+
 [node name="Dynamite" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_tbgjd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_1gjae")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 scale = Vector2(2.5, 2.5)
 shape = SubResource("RectangleShape2D_uerhi")
+
+[node name="DynamiteArea" type="Area2D" parent="."]
+
+[node name="AreaCollision" type="CollisionShape2D" parent="DynamiteArea"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qq4vi")

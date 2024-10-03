@@ -1,6 +1,6 @@
 extends Timer
-@export var minDynamiteSpawnTime = 1.0
-@export var maxDynamiteSpawnTime = 2.0
+@export var minDynamiteSpawnTime = 3.0
+@export var maxDynamiteSpawnTime = 8.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
