@@ -1,18 +1,14 @@
 To Do List:
 -----------
 Priority Tasks:
-1. Object collision and removal
-2. Create a dive mechanic
-3. "Spawn Blocks" array for obstacle generation
-4. Add ceiling
-5. Game Timer (Counts down until you get caught)
-6. Hidden Life value for player (start with 3, each hit pushes player towards monster)
-7. Life Bar for monster (Think Souls Boss)
-8. Add TNT Item (Will be able to be grabbed/used by player, when thrown- will damage boss)
-9.
+1. Make Dynamite grabbable
+2. Life Bar for monster (Think Souls Boss)
+3. dynamite affects monster
+4. Game Timer (Counts down until you get caught)
+5. Hidden Life value for player (start with 3, each hit pushes player towards monster)
 -----------
 Side Tasks:
 1. Debug Jumping
 2. Monster animations
 3. Music/soundtrack
-4. Add start_position for player
+4. Add more spawnblocks
