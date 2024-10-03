@@ -1,6 +1,6 @@
 extends Timer
 @export var minObstacleSpawnTime = 2.0
-@export var maxObstacleSpawnTime = 5.0
+@export var maxObstacleSpawnTime = 4.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

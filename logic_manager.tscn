@@ -75,8 +75,11 @@ position = Vector2(0, -205.5)
 scale = Vector2(4.57422, 0.605469)
 texture = ExtResource("4_kqxa1")
 
-[node name="ObjectSpawn" type="Marker2D" parent="."]
+[node name="BottomObjectSpawn" type="Marker2D" parent="."]
 position = Vector2(670, 175)
+
+[node name="TopObjectSpawn" type="Marker2D" parent="."]
+position = Vector2(670, -125)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(120, 170)
