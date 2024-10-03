@@ -1,5 +1,7 @@
 extends Node
 @export var obstacle_scene: PackedScene
+
+var last_set = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ObstacleTimer.start()
@@ -10,12 +12,12 @@ func _ready():
 
 func _on_obstacle_timer_timeout():
 	var obstacle_set = randi_range(1,6)
-	var last_set = obstacle_set
 
 	while obstacle_set == last_set:
 		obstacle_set = randi_range(1,6)
-		
 	_create_obstacle(obstacle_set)
+	last_set = obstacle_set
+	
 
 	$ObstacleTimer.start()
 
