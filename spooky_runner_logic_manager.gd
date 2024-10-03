@@ -1,10 +1,12 @@
 extends Node
 @export var obstacle_scene: PackedScene
+@export var dynamite_scene: PackedScene
 
 var last_set = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ObstacleTimer.start()
+	$DynamiteTimer.start()
 	var player_spawn_location = $PlayerSpawn.position
 	var monster_spawn_location = $MonsterSpawn.position
 	$Player.position = player_spawn_location
@@ -97,3 +99,15 @@ func _create_obstacle(set_number):
 		add_child(second_obstacle)
 		add_child(third_obstacle)
 	print(set_number)
+
+
+func _on_dynamite_timer_timeout():
+	_create_Dynamite()
+	$DynamiteTimer.start()
+
+func _create_Dynamite():
+	var dynamite = dynamite_scene.instantiate()
+	var dynamite_spawn_location = $DynamiteSpawn.position
+	dynamite.position = dynamite_spawn_location
+	
+	add_child(dynamite)
