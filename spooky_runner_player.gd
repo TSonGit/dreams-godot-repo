@@ -13,7 +13,7 @@ var jumpTimer:float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite2D.play("run")
+	$AnimatedSprite2D.play("run_2")
 
 func _physics_process(delta):
 	# Add the gravity.
