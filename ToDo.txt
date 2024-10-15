@@ -1,7 +1,7 @@
 To Do List:
 -----------
 Priority Tasks:
-1. Make Dynamite grabbable
+1. Make Dynamite grabbable [Done]
 2. Life Bar for monster (Think Souls Boss)
 3. dynamite affects monster
 4. Game Timer (Counts down until you get caught)
