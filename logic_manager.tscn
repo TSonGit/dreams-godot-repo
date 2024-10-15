@@ -93,7 +93,7 @@ position = Vector2(670, 175)
 position = Vector2(670, -125)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(120, 170)
+position = Vector2(120, 180)
 
 [node name="MonsterSpawn" type="Marker2D" parent="."]
 position = Vector2(-400, 40)
