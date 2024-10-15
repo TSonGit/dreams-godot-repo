@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cubt07kdjdte8"]
+[gd_scene load_steps=15 format=3 uid="uid://cubt07kdjdte8"]
 
 [ext_resource type="PackedScene" uid="uid://c5kk66jq5ukyo" path="res://player.tscn" id="1_aodec"]
 [ext_resource type="Script" path="res://spooky_runner_logic_manager.gd" id="1_hbocm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4ivtqld0tk1l" path="res://assets/bricks/brick_tile_1.png" id="4_wbl70"]
 [ext_resource type="Script" path="res://dynamite_timer.gd" id="6_51yx1"]
 [ext_resource type="Script" path="res://obstacle_timer.gd" id="6_a584m"]
+[ext_resource type="Script" path="res://progress_bar.gd" id="11_sakxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q7w7"]
 size = Vector2(29, 20)
@@ -78,6 +79,7 @@ position = Vector2(-1075, -283)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1, 1.5)
 zoom = Vector2(0.8, 1)
 
 [node name="ObstacleTimer" type="Timer" parent="."]
@@ -93,7 +95,7 @@ position = Vector2(670, 175)
 position = Vector2(670, -125)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(120, 170)
+position = Vector2(120, 180)
 
 [node name="MonsterSpawn" type="Marker2D" parent="."]
 position = Vector2(-400, 40)
@@ -101,5 +103,23 @@ position = Vector2(-400, 40)
 [node name="DynamiteSpawn" type="Marker2D" parent="."]
 position = Vector2(670, 0)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -74.0
+offset_right = -76.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 10.0
+script = ExtResource("11_sakxi")
+monster = ExtResource("3_b01r7")
+
+[connection signal="healthChange" from="monster" to="CanvasLayer/ProgressBar" method="_on_monster_health_change"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="DynamiteTimer" to="." method="_on_dynamite_timer_timeout"]
