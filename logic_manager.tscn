@@ -20,7 +20,7 @@ size = Vector2(29, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_squck"]
 size = Vector2(1115, 245.5)
 
-[node name="Logic Manager" type="Node"]
+[node name="Node" type="Node"]
 script = ExtResource("1_hbocm")
 obstacle_scene = ExtResource("2_ltnyj")
 dynamite_scene = ExtResource("3_rt802")
