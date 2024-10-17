@@ -71,7 +71,7 @@ func _create_obstacle(set_number):
 		second_obstacle.position = second_spawn_position
 		
 		var third_obstacle = obstacle_scene.instantiate()
-		var obstacle_orientation = 3.14159
+		var obstacle_orientation = PI
 		var third_spawn_position = Vector2(first_spawn_position.x+200, first_spawn_position.y-300)
 		third_obstacle.rotate(obstacle_orientation)
 		third_obstacle.position = third_spawn_position
@@ -81,7 +81,7 @@ func _create_obstacle(set_number):
 		add_child(third_obstacle)
 	if set_number == 6: #Double on ceiling, Single on Floor
 		var first_obstacle = obstacle_scene.instantiate()
-		var obstacle_orientation = 3.14159
+		var obstacle_orientation = PI
 		var first_spawn_position = $TopObjectSpawn.position
 		first_obstacle.rotate(obstacle_orientation)
 		first_obstacle.position = first_spawn_position
@@ -111,3 +111,7 @@ func _create_Dynamite():
 	dynamite.position = dynamite_spawn_location
 	
 	add_child(dynamite)
+
+
+func _on_player_zero_life():
+	get_tree().quit()

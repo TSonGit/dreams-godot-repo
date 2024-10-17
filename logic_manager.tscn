@@ -71,11 +71,11 @@ scale = Vector2(4.57422, 0.605469)
 texture = ExtResource("4_kqxa1")
 
 [node name="Player" parent="." instance=ExtResource("1_aodec")]
-position = Vector2(123, 177)
+position = Vector2(-270, 177)
 jump_velocity = -350.0
 
 [node name="monster" parent="." instance=ExtResource("3_b01r7")]
-position = Vector2(-1075, -283)
+position = Vector2(-720, 31)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -95,7 +95,7 @@ position = Vector2(670, 175)
 position = Vector2(670, -125)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(120, 180)
+position = Vector2(180, 180)
 
 [node name="MonsterSpawn" type="Marker2D" parent="."]
 position = Vector2(-400, 40)
@@ -120,6 +120,7 @@ value = 10.0
 script = ExtResource("11_sakxi")
 monster = ExtResource("3_b01r7")
 
+[connection signal="zero_life" from="Player" to="." method="_on_player_zero_life"]
 [connection signal="healthChange" from="monster" to="CanvasLayer/ProgressBar" method="_on_monster_health_change"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="DynamiteTimer" to="." method="_on_dynamite_timer_timeout"]

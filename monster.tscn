@@ -69,9 +69,7 @@ script = ExtResource("1_kvvpu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.675)
 sprite_frames = SubResource("SpriteFrames_0iapk")
-animation = &"puppet"
-frame = 1
-frame_progress = 0.197428
+animation = &"worm"
 
 [node name="AreaCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.875, 0)

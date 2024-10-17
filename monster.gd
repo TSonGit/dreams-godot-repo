@@ -22,7 +22,7 @@ func _on_area_entered(area):
 			print("Obstacle Destroyed by Worm")
 		if (area.name == "DynamiteArea"):
 			area.get_parent().queue_free()
-			damageTaken()
+			#damageTaken()
 			print("Dynamite Destroyed by Worm")
 
 func damageTaken():

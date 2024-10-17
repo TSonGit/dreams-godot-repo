@@ -85,18 +85,24 @@ script = ExtResource("1_17wut")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.35)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8dk5k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.3, -1)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_7du56")
-animation = &"run_dynamite"
+animation = &"run"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="AreaCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_34k8c")
 
+[node name="HitStunTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="HitStunTimer" to="." method="_on_hit_stun_timer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
