@@ -116,10 +116,11 @@ offset_right = -76.0
 offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 0
-value = 10.0
+value = 100.0
 script = ExtResource("11_sakxi")
 monster = ExtResource("3_b01r7")
 
+[connection signal="dynamiteThrown" from="Player" to="monster" method="_on_player_dynamite_thrown"]
 [connection signal="zero_life" from="Player" to="." method="_on_player_zero_life"]
 [connection signal="healthChange" from="monster" to="CanvasLayer/ProgressBar" method="_on_monster_health_change"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

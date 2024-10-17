@@ -11,16 +11,18 @@ signal zero_life
 @export var knockBackDistance = 70.0
 @export var hitStunTime = 1
 @export var invincibilityTime = 2.5
+@export var thrownTimer = 1
 
 var currentLife = maxLife
 var hitStunned = false
 var invincible = false
 var holdingDynamite = false
-
 var current_character_gravity = 0.0
 var jumpTimer:float = 0.0
 var startingX
 var knockedBackX
+
+signal dynamiteThrown
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,13 +31,12 @@ func _ready():
 func _process(delta):
 	if holdingDynamite:
 		$AnimatedSprite2D.play("run_dynamite")
+		if !hitStunned: # Player cannot act while in hitstun
+			if (Input.is_action_pressed("Throw")):
+				$ThrownTimer.start(thrownTimer)
+				holdingDynamite = false
 	else:
 		$AnimatedSprite2D.play("run")
-	
-	# Player cannot act while in hitstun
-	if !hitStunned:
-		if (Input.is_action_pressed("Throw")):
-			holdingDynamite = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -99,3 +100,7 @@ func _on_hit_stun_timer_timeout():
 
 func _on_invincibility_timer_timeout():
 	invincible = false
+
+
+func _on_thrown_timer_timeout():
+	dynamiteThrown.emit()

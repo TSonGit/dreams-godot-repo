@@ -22,8 +22,8 @@ func _on_area_entered(area):
 			print("Obstacle Destroyed by Worm")
 		if (area.name == "DynamiteArea"):
 			area.get_parent().queue_free()
-			#damageTaken()
-			print("Dynamite Destroyed by Worm")
+			#_on_player_dynamite_thrown()
+			print("Dynamite thrown at Worm")
 
-func damageTaken():
+func _on_player_dynamite_thrown():
 	healthChange.emit()
