@@ -54,7 +54,7 @@ func _physics_process(delta):
 	if !hitStunned:
 		if (Input.is_action_just_pressed("Jump")):
 			if is_on_floor():
-				jump_velocity -= 600
+				jump_velocity -= 650
 				velocity.y = jump_velocity
 			else:
 				jumpTimer = 0.25

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctw7nqc70j2gx" path="res://assets/character_run_frames_dynamite_transparent.png" id="3_wyh0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dk5k"]
-size = Vector2(13, 16.1)
+size = Vector2(9.9, 16.7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ccgoc"]
 atlas = ExtResource("3_5fwou")
@@ -77,14 +77,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34k8c"]
-size = Vector2(18.8, 20.2)
+size = Vector2(12.6, 19.5)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_17wut")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.35)
+position = Vector2(-1.55, 0.649999)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8dk5k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -92,10 +93,14 @@ position = Vector2(-0.3, -1)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_7du56")
 animation = &"run"
+frame = 2
+frame_progress = 0.986828
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="AreaCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0.349999)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_34k8c")
 
 [node name="HitStunTimer" type="Timer" parent="."]
