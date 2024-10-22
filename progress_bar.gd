@@ -1,12 +1,12 @@
 extends ProgressBar
 @export var monster: PackedScene
 
-
+signal victory
 
 func update():
 	value = value - (max_value/10)
 	if value == 0:
-		get_tree().quit()
+		victory.emit()
 	
 
 

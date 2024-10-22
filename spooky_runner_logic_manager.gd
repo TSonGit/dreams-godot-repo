@@ -2,6 +2,9 @@ extends Node
 @export var obstacle_scene: PackedScene
 @export var dynamite_scene: PackedScene
 
+signal gameWon
+signal gameOver
+
 var last_set = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -112,6 +115,19 @@ func _create_Dynamite():
 	
 	add_child(dynamite)
 
+func stop_game():
+	$Player.hide()
+	$monster.hide()
+	$progressLayer.hide()
+	$ObstacleTimer.stop()
+	$DynamiteTimer.stop()
+	get_tree().call_group("AllObstacles", "queue_free")
 
 func _on_player_zero_life():
-	get_tree().quit()
+	stop_game()
+	gameOver.emit()
+
+
+func _on_progress_bar_victory():
+	stop_game()
+	gameWon.emit()
